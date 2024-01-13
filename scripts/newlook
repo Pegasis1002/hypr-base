@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#set variables
+wall=$(find ~/wallpapers/ -name "*.jpg" -o -name "*.png" | shuf -n 1)
+
+
+echo $wall
+
+#set wallpaper
+exec swww img $wall &
+
+
+#pywal
+wal -c 
+wal -i $wall
+
+#relaunch waybar 
+exec ~/dotfiles/waybar/launch.sh
